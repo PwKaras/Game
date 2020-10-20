@@ -5,6 +5,7 @@ import './Button.css'
 const Button = props => {
 
 
+    if(props.to) 
     return (
         <Link
             to={props.to}
@@ -21,6 +22,20 @@ const Button = props => {
             {props.children}
         </Link>
     );
+    return (
+        <button
+        className={`
+        button 
+        ${props.animation}
+        `}
+        type={props.type}
+        onClick={props.onClick}
+        disabled={props.disabled}
+        >
+        {props.children}
+        </button>
+    )
+
 }
 
 export default Button;
