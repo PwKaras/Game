@@ -4,12 +4,27 @@ import Header from '../components/Header';
 
 const WelcomeView = () => {
 
-    // active and disable props.flash
+    //not CSS way to flash button - active and disable props.flash
     const [isFlash, setIsFlash] = useState(true);
+    // useEffect(
+    //     () => {
+    //         const id = setTimeout(() => {
+    //             setIsFlash(!isFlash);
+    //         }, 1000);
+    //         return () => {
+    //             clearTimeout(id);
+    //         };
+    //     },
+    //     [isFlash],
+    // );
     useEffect(
         () => {
             const id = setTimeout(() => {
-                setIsFlash(!isFlash);
+                if(isFlash === true) {
+                    setIsFlash(false);
+                } else {
+                    setIsFlash(true);
+                }
             }, 1000);
             return () => {
                 clearTimeout(id);

@@ -1,80 +1,183 @@
 .button {
-    font: inherit;
-    padding: 0.5rem 1.5rem;
-    border: 1px solid #ff0055;
-    border-radius: 4px;
-    background: #ff0055;
+  font: inherit;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #ff0055;
+  border-radius: 4px;
+  background: #ff0055;
+  color: white;
+  cursor: pointer;
+  margin-right: 1rem;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.button:focus {
+  outline: none;
+}
+
+
+.button-flash {
+  background: #e7fc44;
+  color: #207ce5;
+}
+
+/* invitation view animation */
+.button-animation__flashContinuous {
+  animation: flashContinuous 1s infinite;
+}
+
+@keyframes flashContinuous {
+  from {
     color: white;
-    cursor: pointer;
-    margin-right: 1rem;
-    text-decoration: none;
-    display: inline-block;
+    background: #ff0055;
   }
-  
-  .button:focus {
-    outline: none;
-  }
-  
-  .button-flash{
+
+  to {
     background: #e7fc44;
     color: #207ce5;
   }
-.button-animation__flashContinuous {
-  animation: flashContinuous 1s infinite;
-}  
-  @keyframes flashContinuous {
-    from {
-      color: white;
-      background: #ff0055;
-    }
-    
-    to {
-      background: #e7fc44;
-      color: #207ce5;
-    }
+}
+
+.button:hover,
+.button:active {
+  background: #e7fc40;
+  border-color: #ff4382;
+}
+
+.button-inverse {
+  background: transparent;
+  color: #ff0055;
+}
+
+.button-inverse:hover,
+.button-inverse:active {
+  color: white;
+  background: #ff0055;
+}
+
+.button-danger {
+  background: #830000;
+  border-color: #830000;
+}
+
+.button-danger:hover,
+.button-danger:active {
+  background: #f34343;
+  border-color: #f34343;
+}
+
+.button:disabled,
+.button:hover:disabled,
+.button:active:disabled {
+  background: #ccc;
+  color: #979797;
+  border-color: #ccc;
+  cursor: not-allowed;
+}
+
+.button-small {
+  font-size: 0.8rem;
+}
+
+.button-big {
+  font-size: 1.5rem;
+}
+
+
+/* game animation level 1 */
+.button-animation__jump {
+  animation: jump 3s infinite;
+}
+
+@keyframes jump {
+  0% {
+    top: 0px;
+    transform: rotate(0deg);
   }
-  
-  .button:hover,
-  .button:active {
-    background: #e7fc40;
-    border-color: #ff4382;
+
+  25% {
+    transform: rotate(0deg);
+    top: -30px
   }
-  
-  .button-inverse {
-    background: transparent;
-    color: #ff0055;
+
+  50% {
+    transform: rotate(360deg);
+    top: -30px;
   }
-  
-  .button-inverse:hover,
-  .button-inverse:active {
-    color: white;
-    background: #ff0055;
+
+  75% {
+    transform: rotate(0deg);
+    top: -30px;
   }
-  
-  .button-danger {
-    background: #830000;
-    border-color: #830000;
+
+  100% {
+    transform: rotate(0deg);
+    top: 0px;
   }
-  
-  .button-danger:hover,
-  .button-danger:active {
-    background: #f34343;
-    border-color: #f34343;
+}
+
+
+.button-animation__rightEnter {
+  animation: rightEnter 3s infinite;
+}
+
+@keyframes rightEnter {
+  from {
+    left: 1000px;
   }
-  
-  .button:disabled,
-  .button:hover:disabled,
-  .button:active:disabled {
-    background: #ccc;
-    color: #979797;
-    border-color: #ccc;
-    cursor: not-allowed;
+
+  to {
+    left: 0px;
   }
-  
-  .button-small {
-    font-size: 0.8rem;
+}
+
+.button-animation__leftEnter {
+  animation: leftEnter 3s infinite;
+}
+
+@keyframes leftEnter {
+  from {
+    left: -1000px;
   }
-  
-  .button-big {
-    font-size: 1.5rem;
+
+  to {
+    left: 0px;
   }
+}
+
+.button-animation__square {
+  animation: square 3s infinite;
+}
+
+@keyframes square {
+  0% {
+    background-color: red;
+    left: 0px;
+    top: 0px;
+  }
+
+  25% {
+    background-color: yellow;
+    left: 200px;
+    top: 0px;
+  }
+
+  50% {
+    background-color: blue;
+    left: 200px;
+    top: 200px;
+  }
+
+  75% {
+    background-color: green;
+    left: 0px;
+    top: 200px;
+  }
+
+  100% {
+    background-color: red;
+    left: 0px;
+    top: 0px;
+  }
+
+}
