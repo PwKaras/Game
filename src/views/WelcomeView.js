@@ -26,6 +26,7 @@ const WelcomeView = () => {
                     setIsFlash(true);
                 }
             }, 1000);
+            // clean up effect
             return () => {
                 clearTimeout(id);
             };
