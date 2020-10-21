@@ -86,6 +86,7 @@
 
 /* game animation level 1 */
 .button-animation__jump {
+  position: relative;
   animation: jump 3s infinite;
 }
 
@@ -118,6 +119,7 @@
 
 
 .button-animation__rightEnter {
+  position: relative;
   animation: rightEnter 3s infinite;
 }
 
@@ -132,6 +134,7 @@
 }
 
 .button-animation__leftEnter {
+  position: relative;
   animation: leftEnter 3s infinite;
 }
 
@@ -146,6 +149,7 @@
 }
 
 .button-animation__square {
+  position: relative;
   animation: square 3s infinite;
 }
 
@@ -179,5 +183,4 @@
     left: 0px;
     top: 0px;
   }
-
 }
