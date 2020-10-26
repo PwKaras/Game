@@ -37,17 +37,17 @@ const WelcomeView = () => {
     return (
         <>
             <Header />
-            <div className="App">
-                <header className="App-header">
-                    <h2 className="App-header__title__animation__jump">ARE YOU FAST?</h2>
-                    <h2 className="App-header__title__animation__rightEnter">REALLY FAST?</h2>
-                    <h2 className="App-header__title__animation__leftEnter">TRY TO CATCH ME?</h2>
+            <div className="App-main">
+                <main className="App-main-section">
+                    <h2 className="App-main-section__title__animation__jump">ARE YOU FAST?</h2>
+                    <h2 className="App-main-section__title__animation__rightEnter">REALLY FAST?</h2>
+                    <h2 className="App-main-section__title__animation__leftEnter">TRY TO CATCH ME?</h2>
                     <Button to={`/game`}
                     // CSS way to flash button animation
                     // flash={`button-animation__flashContinuous`}
                     flash={`${isFlash === true ? 'button-flash': 'button'}`}
                     >START GAME</Button>
-                </header>
+                </main>
             </div>
         </>
     );
