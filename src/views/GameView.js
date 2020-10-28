@@ -15,6 +15,7 @@ const GameView = () => {
     // score counter, shortage time to generate next button on achieve fixed number of points, level indicator
     const scoreHandler = () => {
         setCounter(counter + 1);
+        setCoutnerIsChange(true);
         if (counter === 10) {
             setLevel(2);
             setTimeoutTime(2000);
@@ -34,16 +35,28 @@ const GameView = () => {
                     const randomIndex = Math.floor(Math.random() * 4);
                     let newAnimationType = animationTypeArr[randomIndex];
 
-                    // avoiding repeated random values
-                    if (animationType === newAnimationType) {
-                        animationType === "jump" ?
-                            setAnimationType("rightEnter") :
-                            setAnimationType(animationTypeArr[randomIndex - 1]);
-                    } else {
-                        setAnimationType(newAnimationType)
+                    if (counterIsChange === true) {
+                        setTimeoutTime(1);
+                        setCoutnerIsChange(false);
+                        console.log("clear");
                     };
+                    if (counterIsChange === false) {
+                        setTimeoutTime(timeoutTime);
+                        // avoiding repeated random values
+                        if (animationType === newAnimationType) {
+                            animationType === "jump" ?
+                                setAnimationType("rightEnter") :
+                                setAnimationType(animationTypeArr[randomIndex - 1]);
+                        } else {
+                            setAnimationType(newAnimationType)
+                        };
+
+                    }
                 }, timeoutTime
             );
+            if (counterIsChange === true) {
+                console.log("au")
+            }
             // clean up effect
             return () => {
                 clearTimeout(id);
