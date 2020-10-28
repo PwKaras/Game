@@ -7,15 +7,31 @@ const GameView = () => {
 
     const [animationType, setAnimationType] = useState("jump");
     const [counter, setCounter] = useState(0);
-    const [counterIsChange, setCoutnerIsChange] = useState(false);
     const [level, setLevel] = useState(1)
     const [timeoutTime, setTimeoutTime] = useState(3000)
 
+    // random change button`s animation type
+    const buttonTypeGenerator = useCallback(() => {
+        const animationTypeArr = ["jump", "rightEnter", "leftEnter", "square"];
+        const randomIndex = Math.floor(Math.random() * 4);
+        let newAnimationType = animationTypeArr[randomIndex];
 
-    // score counter, shortage time to generate next button on achieve fixed number of points, level indicator
+        // avoiding repeated random values
+        if (animationType === newAnimationType) {
+            animationType === "jump" ?
+                setAnimationType("rightEnter") :
+                setAnimationType(animationTypeArr[randomIndex - 1]);
+        } else {
+            setAnimationType(newAnimationType)
+        };
+    }, [animationType]);
+
+    // score counter, change time (shortage) to generate next button on achieve fixed number of points, level indicator
     const scoreHandler = () => {
+        buttonTypeGenerator();
         setCounter(counter + 1);
-        setCoutnerIsChange(true);
+
+        // change level when player achieve fixed score
         if (counter === 10) {
             setLevel(2);
             setTimeoutTime(2000);
@@ -26,45 +42,21 @@ const GameView = () => {
         };
     };
 
-    // generate different button type in indicate (timeoutTime) time period 
-    const buttonGenerator = useEffect(
+    // generate different button type if player dont caught the button in indicate (timeout Time) period
+    const timeGenerator = useEffect(
         () => {
             const id = setTimeout(
                 () => {
-                    const animationTypeArr = ["jump", "rightEnter", "leftEnter", "square"];
-                    const randomIndex = Math.floor(Math.random() * 4);
-                    let newAnimationType = animationTypeArr[randomIndex];
-
-                    if (counterIsChange === true) {
-                        setTimeoutTime(1);
-                        setCoutnerIsChange(false);
-                        console.log("clear");
-                    };
-                    if (counterIsChange === false) {
-                        setTimeoutTime(timeoutTime);
-                        // avoiding repeated random values
-                        if (animationType === newAnimationType) {
-                            animationType === "jump" ?
-                                setAnimationType("rightEnter") :
-                                setAnimationType(animationTypeArr[randomIndex - 1]);
-                        } else {
-                            setAnimationType(newAnimationType)
-                        };
-
-                    }
+                    buttonTypeGenerator();
                 }, timeoutTime
             );
-            if (counterIsChange === true) {
-                console.log("au")
-            }
+
             // clean up effect
             return () => {
                 clearTimeout(id);
             };
-        }, [animationType, timeoutTime]
+        }, [timeoutTime, buttonTypeGenerator]
     );
-
-
 
     return (
         <>
