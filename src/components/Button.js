@@ -15,8 +15,6 @@ const Button = props => {
                 ${props.flash}
                 {/*CSS way to flash button animation {props.flash && 'button-animation__flashContinuous'} */} 
                 button--${props.size || 'default'} 
-                ${props.inverse && `button-inverse`} 
-                ${props.danger && 'button-danger'}
                 `}
         >
             {props.children}
@@ -26,11 +24,11 @@ const Button = props => {
         <button
         className={`
         button 
-        ${props.animation}
+        ${props.drawer && 'button-drawer'}
+        ${props.animation && props.animation || null}
         `}
         type={props.type}
         onClick={props.onClick}
-        disabled={props.disabled}
         >
         {props.children}
         </button>

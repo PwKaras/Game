@@ -1,0 +1,21 @@
+.side-drawer {
+  position: fixed;
+  right: 0;
+  top: 4rem;
+  z-index: 100;
+  width: 40%;
+  background: white;
+  box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.75);
+  /* transform: translateX(100%); */
+  display: flex;
+}
+
+@media (min-width: 768px) {
+  .side-drawer {
+    display: none;
+  }
+
+  .slide-in-right{
+    display: none;
+  }
+}

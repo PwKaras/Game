@@ -11,14 +11,14 @@
   background-color: #282c34;
 }
 
-.App-main-section__shared-view{
-  width: 75%;
+.App-main-section__shared-view {
+  width: 100%;
   padding-top: 1rem;
 }
 
+
 .App-main-section {
   width: 100%;
-  min-height: 100vh;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -31,101 +31,23 @@
   background-color: #282c34;
 }
 
-.App-main-section__title__animation__jump {
-  position: relative;
-  animation: jump ease-in 3s;
-}
-
-.App-main-section__title__animation__rightEnter {
-  position: relative;
-  animation: rightEnter ease-in 5s;
-}
-
-.App-main-section__title__animation__leftEnter {
-  position: relative;
-  animation: leftEnter ease-in 5s;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes jump {
-  0% {
-    top: 0px;
-    transform: rotate(0deg);
-  }
-
-  25% {
-    transform: rotate(0deg);
-    top: -30px
-  }
-
-  50% {
-    transform: rotate(360deg);
-    top: -30px;
-  }
-
-  75% {
-    transform: rotate(0deg);
-    top: -30px;
-  }
-
-  100% {
-    transform: rotate(0deg);
-    top: 0px;
-  }
-}
-
-@keyframes rightEnter {
-  0% {
-    left: 1000px;
-  }
-
-  50% {
-    left: 1000px;
-  }
-
-  75% {
-    left: 0px;
-  }
-
-  100% {
-    left: 0px;
-  }
-}
-
-@keyframes leftEnter {
-  0% {
-    left: -1000px;
-  }
-
-  50% {
-    left: -1000px;
-  }
-
-  75% {
-    left: -1000px;
-  }
-
-  100% {
-    left: 0px;
-  }
-}
-
 @media (min-width: 768px) {
- .App-main {
-   font-size: calc(10px + 2vmin);
- } 
+  .App-main {
+    font-size: calc(10px + 2vmin);
+  }
+
+  .App-main {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .App-main-section__shared-view {
+    width: 75%;
+    padding-top: 1rem;
+  }
+
+  .App-main-section {
+    min-height: 100vh;
+  }
 
 }

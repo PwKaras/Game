@@ -13,6 +13,7 @@
 .nav-links li {
   margin: 1rem;
   padding: 0.5rem;
+  display: none;
 }
 
 .nav-links a {
@@ -31,24 +32,58 @@
   color: #292929;
 }
 
-.nav-links button {
-  cursor: pointer;
-  border: 1px solid #292929;
+/* button hamburger */
+.button-drawer {
+  padding: 0.2rem 0;
   color: #292929;
-  background: transparent;
-  padding: 0.5rem;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid #292929;
   font: inherit;
 }
 
-/* .nav-links button:focus {
-  outline: none;
-} */
-
-.nav-links button:hover,
-.nav-links button:active {
-  background: #292929;
-  color: white;
+.button-drawer:hover {
+  color: #292929;
+  cursor: pointer;
+  background-color: #e7fc44;
+  border: 1px solid #292929;
+  font: inherit;
 }
+
+.button-drawer span {
+  display: block;
+  width: 2rem;
+  height: 2px;
+  background: black;
+  margin: 0.4rem;
+}
+
+/* side drawer */
+.side-drawer .nav-links {
+  width: 100%;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.side-drawer .nav-links li {
+  display: flex;
+  background-color: #d9d9d9;
+  padding: 0rem;
+  margin: 0rem;
+  border-bottom: 1px solid black;
+}
+
+.side-drawer .nav-links a {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0;
+  color: black;
+}
+
 
 @media (min-width: 768px) {
   .nav-links {
@@ -57,6 +92,7 @@
 
   .nav-links li {
     margin: 0 0.5rem;
+    display: flex;
   }
 
   .nav-links a {
@@ -64,15 +100,7 @@
     text-decoration: none;
   }
 
-  .nav-links button {
-    border: 1px solid white;
-    color: white;
-    background: transparent;
-  }
-  
-  .nav-links button:hover,
-  .nav-links button:active {
-    background: #f8df00;
-    color: #292929;
+  .button-drawer {
+    display: none;
   }
 }
