@@ -16,7 +16,6 @@
   outline: none;
 }
 
-
 .button-flash {
   background: #e7fc44;
   color: #207ce5;
@@ -43,45 +42,6 @@
 .button:active {
   background: #e7fc40;
   border-color: #ff4382;
-}
-
-.button-inverse {
-  background: transparent;
-  color: #ff0055;
-}
-
-.button-inverse:hover,
-.button-inverse:active {
-  color: white;
-  background: #ff0055;
-}
-
-.button-danger {
-  background: #830000;
-  border-color: #830000;
-}
-
-.button-danger:hover,
-.button-danger:active {
-  background: #f34343;
-  border-color: #f34343;
-}
-
-.button:disabled,
-.button:hover:disabled,
-.button:active:disabled {
-  background: #ccc;
-  color: #979797;
-  border-color: #ccc;
-  cursor: not-allowed;
-}
-
-.button-small {
-  font-size: 0.8rem;
-}
-
-.button-big {
-  font-size: 1.5rem;
 }
 
 
@@ -118,7 +78,6 @@
   }
 }
 
-
 .button-animation__rightEnter {
   position: relative;
   animation: rightEnter 3s infinite;
@@ -126,7 +85,7 @@
 
 @keyframes rightEnter {
   from {
-    left: 1000px;
+    left: 200px;
   }
 
   to {
@@ -141,7 +100,7 @@
 
 @keyframes leftEnter {
   from {
-    left: -1000px;
+    left: -200px;
   }
 
   to {
@@ -163,25 +122,81 @@
 
   25% {
     background-color: yellow;
-    left: 200px;
+    left: 100px;
     top: 0px;
   }
 
   50% {
     background-color: blue;
-    left: 200px;
-    top: 200px;
+    left: 100px;
+    top: 100px;
   }
 
   75% {
     background-color: green;
     left: 0px;
-    top: 200px;
+    top: 100px;
   }
 
   100% {
     background-color: red;
     left: 0px;
     top: 0px;
+  }
+}
+
+
+@media (min-width: 768px) {
+
+  @keyframes rightEnter {
+    from {
+      left: 700px;
+    }
+
+    to {
+      left: 0px;
+    }
+  }
+
+  @keyframes leftEnter {
+    from {
+      left: -700px;
+    }
+
+    to {
+      left: 0px;
+    }
+  }
+
+  @keyframes square {
+    0% {
+      background-color: red;
+      left: 0px;
+      top: 0px;
+    }
+
+    25% {
+      background-color: yellow;
+      left: 200px;
+      top: 0px;
+    }
+
+    50% {
+      background-color: blue;
+      left: 200px;
+      top: 200px;
+    }
+
+    75% {
+      background-color: green;
+      left: 0px;
+      top: 200px;
+    }
+
+    100% {
+      background-color: red;
+      left: 0px;
+      top: 0px;
+    }
   }
 }
