@@ -1,14 +1,17 @@
 .App {
   text-align: center;
-  height: 90vh;
+  position: absolute;
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  top: 0;
 }
 
 .App-main {
   width: 100%;
-  height: inherit;;
+  height: 90vh;
   display: flex;
   flex-wrap: wrap;
-  padding: 2rem 0 0 0;
   background-color: #282c34;
 }
 
