@@ -35,7 +35,7 @@ const WelcomeView = () => {
     );
 
     return (
-        <>
+        <div className="App">
             <Header />
             <div className="App-main">
                 <main className="App-main-section">
@@ -49,7 +49,7 @@ const WelcomeView = () => {
                     >START GAME</Button>
                 </main>
             </div>
-        </>
+        </div>
     );
 }
 
