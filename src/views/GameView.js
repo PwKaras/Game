@@ -59,9 +59,8 @@ const GameView = () => {
     );
 
     return (
-        <>
+        <div className="App">
             <Header />
-            <div className="App">
                 <main className="App-main">
                     <div className="App-main-section__shared-view">
                         <div className="App-main-section">
@@ -81,9 +80,7 @@ const GameView = () => {
                         Level {level}
                     </Aside>
                 </main>
-
-            </div>
-        </>
+        </div>
     );
 }
 
