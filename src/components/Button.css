@@ -24,6 +24,7 @@
 /* invitation view animation */
 .button-animation__flashContinuous {
   animation: flashContinuous 1s infinite;
+  user-select: none;
 }
 
 @keyframes flashContinuous {
@@ -44,11 +45,11 @@
   border-color: #ff4382;
 }
 
-
 /* game animation level 1 */
 .button-animation__jump {
   position: relative;
   animation: jump 3s infinite;
+  user-select: none;
 }
 
 @keyframes jump {
@@ -81,6 +82,7 @@
 .button-animation__rightEnter {
   position: relative;
   animation: rightEnter 3s infinite;
+  user-select: none;
 }
 
 @keyframes rightEnter {
@@ -96,6 +98,7 @@
 .button-animation__leftEnter {
   position: relative;
   animation: leftEnter 3s infinite;
+  user-select: none;
 }
 
 @keyframes leftEnter {
@@ -111,6 +114,7 @@
 .button-animation__square {
   position: relative;
   animation: square 3s infinite;
+  user-select: none;
 }
 
 @keyframes square {

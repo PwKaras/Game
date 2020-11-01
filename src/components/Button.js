@@ -25,7 +25,7 @@ const Button = props => {
         className={`
         button 
         ${props.drawer && 'button-drawer'}
-        ${props.animation && props.animation}
+        ${props.animation && "button-animation" && props.animation}
         `}
         type={props.type}
         onClick={props.onClick}
