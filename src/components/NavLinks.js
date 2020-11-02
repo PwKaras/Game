@@ -9,6 +9,12 @@ const NavLinks = props => {
     const [showDrawer, setShowDrawer] = useState(false);
 
     const toggleDrawerHandler = () => {
+        // if (showDrawer === "close") {
+        //     setShowDrawer("open");
+        // }
+        // else {
+        //     setShowDrawer("close");
+        // }
         setShowDrawer(!showDrawer);
     };
 
@@ -22,30 +28,26 @@ const NavLinks = props => {
                 <span />
                 <span />
             </Button>
-
-            {showDrawer ?
-                (<SideDrawer
-                    show={showDrawer}>
-                    <ul className="nav-links">
-                        <li>
-                            <NavLink
-                                to="/" exact
-                                className="nav-links">
-                                MAIN PAGE
+            <SideDrawer
+                show={showDrawer}
+            >
+                <ul className="nav-links">
+                    <li>
+                        <NavLink
+                            to="/" exact
+                            className="nav-links">
+                            MAIN PAGE
                                     </NavLink>
-                        </li>
-                        <li>
-                            <NavLink
-                                to="/game"
-                                className="nav-links">
-                                GAME
+                    </li>
+                    <li>
+                        <NavLink
+                            to="/game"
+                            className="nav-links">
+                            GAME
                                     </NavLink>
-                        </li>
-                    </ul>
-                </SideDrawer>
-                )
-                : null
-            }
+                    </li>
+                </ul>
+            </SideDrawer>
             <ul className="nav-links">
 
                 <li>
