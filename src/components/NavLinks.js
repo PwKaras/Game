@@ -18,7 +18,7 @@ const NavLinks = props => {
         setShowDrawer(!showDrawer);
     };
 
-    return (
+      return (
         <>
             <Button
                 drawer={'button-drawer'}
@@ -30,6 +30,7 @@ const NavLinks = props => {
             </Button>
             <SideDrawer
                 show={showDrawer}
+                
             >
                 <ul className="nav-links">
                     <li>
