@@ -35,6 +35,28 @@
   background-color: #282c34;
 }
 
+.App-main-section__title__animation__jump {
+  position: relative;
+  animation: jump 3s;
+  user-select: none;
+}
+/* @keyframe animations defines in src/components/Button.css */
+
+.App-main-section__title__animation__rightEnter {
+  position: relative;
+  animation: rightEnter 5s;
+  user-select: none;
+}
+
+
+.App-main-section__title__animation__leftEnter {
+  position: relative;
+  animation: leftEnter 5s;
+  user-select: none;
+}
+
+
+
 @media (min-width: 768px) {
   .App-main {
     font-size: calc(10px + 2vmin);
