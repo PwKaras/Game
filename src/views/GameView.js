@@ -1,14 +1,16 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { connect } from 'react-redux';
+import * as actionTypes from '../store/actions/actionTypes';
 import Button from '../components/Button';
 import Header from '../components/Header';
 import Aside from '../components/Aside';
 
-const GameView = () => {
+const GameView = (props) => {
 
     const [animationType, setAnimationType] = useState("jump");
-    const [counter, setCounter] = useState(0);
-    const [level, setLevel] = useState(1)
-    const [timeoutTime, setTimeoutTime] = useState(3000)
+    // const [counter, setCounter] = useState(0);
+    const [level, setLevel] = useState(1);
+    const [timeoutTime, setTimeoutTime] = useState(3000);
 
     // random change button`s animation type
     const buttonTypeGenerator = useCallback(() => {
@@ -29,14 +31,15 @@ const GameView = () => {
     // score counter, change time (shortage) to generate next button on achieve fixed number of points, level indicator
     const scoreHandler = () => {
         buttonTypeGenerator();
-        setCounter(counter + 1);
+        // setCounter(counter + 1);
+        props.onIncrementCounter()
 
         // change level when player achieve fixed score
-        if (counter === 10) {
+        if (props.ctr === 10) {
             setLevel(2);
             setTimeoutTime(2000);
         };
-        if (counter === 20) {
+        if (props.ctr === 20) {
             setLevel(3);
             setTimeoutTime(1000);
         };
@@ -61,27 +64,42 @@ const GameView = () => {
     return (
         <div className="App">
             <Header />
-                <main className="App-main">
-                    <div className="App-main-section__shared-view">
-                        <div className="App-main-section">
+            <main className="App-main">
+                <div className="App-main-section__shared-view">
+                    <div className="App-main-section">
 
-                            <h2>
-                                My score {counter}
-                            </h2>
-                            <div className="center">
-                                <Button
-                                    onClick={scoreHandler}
-                                    animation={`button-animation__${animationType}`}>CATCH ME</Button>
-                            </div>
+                        <h2>
+                            My score {props.ctr}
+                        </h2>
+                        <div className="center">
+                            <Button
+                                onClick={scoreHandler}
+                                animation={`button-animation__${animationType}`}>CATCH ME</Button>
                         </div>
                     </div>
-                    <Aside
-                        level={level} >
-                        Level {level}
-                    </Aside>
-                </main>
+                </div>
+                <Aside
+                    level={level} >
+                    Level {level}
+                </Aside>
+            </main>
         </div>
     );
 }
 
-export default GameView;
+
+// connect 
+const mapStateToProps = state => {
+    return {
+        ctr: state.counter
+    }
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onIncrementCounter: () => dispatch({ type: actionTypes.INCREMENT })
+    }
+};
+
+// connect redux state and action to GameView compontent
+export default connect(mapStateToProps, mapDispatchToProps)(GameView);
