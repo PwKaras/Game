@@ -1,7 +1,7 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
-    counter: 0
+    counter: 0,
 };
 
 const coutnerReducer = (state = initialState, action) => {
@@ -9,7 +9,10 @@ const coutnerReducer = (state = initialState, action) => {
         case actionTypes.INCREMENT:
             const newState = Object.assign({}, state);
             newState.counter = state.counter + 1;
-            return newState;
+            return {
+                ...state,
+                ...newState
+            }
         default:
             return state;
     }
