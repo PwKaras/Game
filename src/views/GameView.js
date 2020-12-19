@@ -8,8 +8,9 @@ import Aside from '../components/Aside';
 const GameView = (props) => {
 
     const [animationType, setAnimationType] = useState("jump");
+    // hook way to make score counter and level
     // const [counter, setCounter] = useState(0);
-    const [level, setLevel] = useState(1);
+    // const [level, setLevel] = useState(1);
     const [timeoutTime, setTimeoutTime] = useState(3000);
 
     // random change button`s animation type
@@ -36,11 +37,13 @@ const GameView = (props) => {
 
         // change level when player achieve fixed score
         if (props.ctr === 10) {
-            setLevel(2);
+            props.onLevelUp();
+            // setLevel(2);
             setTimeoutTime(2000);
         };
         if (props.ctr === 20) {
-            setLevel(3);
+            props.onLevelUp();
+            // setLevel(3);
             setTimeoutTime(1000);
         };
     };
@@ -79,8 +82,8 @@ const GameView = (props) => {
                     </div>
                 </div>
                 <Aside
-                    level={level} >
-                    Level {level}
+                    level={props.lev} >
+                    Level {props.lev}
                 </Aside>
             </main>
         </div>
@@ -91,13 +94,15 @@ const GameView = (props) => {
 // connect 
 const mapStateToProps = state => {
     return {
-        ctr: state.counter
+        ctr: state.ctr.counter,
+        lev: state.lev.level
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        onIncrementCounter: () => dispatch({ type: actionTypes.INCREMENT })
+        onIncrementCounter: () => dispatch({ type: actionTypes.INCREMENT }),
+        onLevelUp: () => dispatch({ type: actionTypes.LEVEL_UP })
     }
 };
 

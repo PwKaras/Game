@@ -1,3 +1,6 @@
+Simple game
+React (hooks), redux, css animations, mobile first
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
